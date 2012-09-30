@@ -5,11 +5,6 @@ Simulates drupal-like hooks with node.js modules.
 ## Getting Started
 Install the module with: `npm install modules-hooks`
 
-```javascript
-var modules_hooks = require('modules-hooks');
-modules_hooks.awesome(); // "awesome"
-```
-
 ## Documentation
 _(Coming soon)_
 
