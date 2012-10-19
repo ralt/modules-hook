@@ -1,4 +1,4 @@
-var modules_hooks = require('../lib/modules-hooks.js');
+var hooks = require('../lib/modules-hooks.js');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -32,3 +32,31 @@ var modules_hooks = require('../lib/modules-hooks.js');
 //    test.done();
 //  }
 //};
+exports['hooks'] = {
+    setUp: function(done) {
+        var that = this;
+
+        that.result = false;
+
+        hooks.on('test', function(data, callback) {
+            that.result = data;
+            callback(data);
+        });
+
+        done();
+    },
+
+    'invoke': function(test) {
+        var that = this;
+
+        test.expect(2);
+
+        test.equal(that.result, false, 'false before the hook');
+
+        hooks.invoke('test', true, function(data) {
+            test.equal(that.result, true, 'true after the hook');
+
+            test.done();
+        });
+    }
+};
