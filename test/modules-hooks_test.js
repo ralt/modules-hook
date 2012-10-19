@@ -20,18 +20,6 @@ var hooks = require('../lib/modules-hooks.js');
     test.ifError(value)
 */
 
-//exports['awesome'] = {
-//  setUp: function(done) {
-//    // setup here
-//    done();
-//  },
-//  'no args': function(test) {
-//    test.expect(1);
-//    // tests here
-//    test.equal(modules_hooks.awesome(), 'awesome', 'should be awesome.');
-//    test.done();
-//  }
-//};
 exports['hooks'] = {
     setUp: function(done) {
         var that = this;
